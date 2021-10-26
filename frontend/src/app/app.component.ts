@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   addUser(): void {
-    this.router.navigate(['add-users'])
+    this.router.navigate(['add-user'])
       .then((e) => {
         if (e) {
           console.log("Navigation is successful!");
