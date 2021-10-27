@@ -6,12 +6,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AddUserComponent} from "./add-user/add-user.component";
 import { MrzComponent } from './mrz/mrz.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
-    MrzComponent
+    MrzComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

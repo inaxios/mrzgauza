@@ -32,9 +32,14 @@ export class AppComponent implements OnInit {
       });
   };
 
-  mrzs(): void {
+  gotomrzs(): void {
     this.router.navigate(['mrz']);
   };
+
+  gotofileupload(): void {
+    this.router.navigate(['file-upload']);
+  }
+
 
   ngOnInit(): void {
     this.router.events.subscribe(value => {
