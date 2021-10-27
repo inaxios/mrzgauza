@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileuploadService} from "../service/fileupload-service.service";
+import {Mrzinfo} from "../mrzinfo";
 
 @Component({
   selector: 'app-file-upload',
@@ -9,7 +10,7 @@ import {FileuploadService} from "../service/fileupload-service.service";
 export class FileUploadComponent implements OnInit {
 
   // Variable to store shortLink from api response
-  shortLink: string = "";
+  mrz?: Mrzinfo;
   loading: boolean = false; // Flag variable
   file: File; // Variable to store file
 
@@ -29,12 +30,9 @@ export class FileUploadComponent implements OnInit {
     this.loading = !this.loading;
     console.log(this.file);
     this.fileUploadService.upload(this.file).subscribe(
-      (event: any) => {
-        if (typeof (event) === 'object') {
-          // Short link via api response
-          this.shortLink = event.link;
-          this.loading = false; // Flag variable
-        }
+      data => {
+        this.mrz = data;
+        this.loading = false;
       }
     );
   }

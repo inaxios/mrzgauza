@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 export class FileuploadService {
 
   // API url
-  baseApiUrl = "https://file.io"
+  url = "http://localhost:8080/backend/mrzs/uploadnew"
 
   constructor(private http:HttpClient) { }
 
@@ -17,9 +17,9 @@ export class FileuploadService {
     // Create form data
     const formData = new FormData();
     // Store form name as "file" with file data
-    formData.append("file", file, file.name);
+    formData.append("thefile", file, file.name);
     // Make http post request over api
     // with formData as req
-    return this.http.post(this.baseApiUrl, formData)
+    return this.http.post(this.url, formData)
   }
 }

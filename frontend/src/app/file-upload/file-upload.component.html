@@ -9,9 +9,18 @@
 
 <!-- Shareable short link of  uoloaded file -->
 <div class="container text-center jumbotron"
-     *ngIf="shortLink">
-  <h2> Visit Here</h2>
-  <a href="{{shortLink}}">{{shortLink}}</a>
+     *ngIf="mrz">
+  <h2>That's what we got, have a look...</h2>
+  <p>Last name: {{mrz.last_name}}</p>
+  <p>First name: {{mrz.first_name}}</p>
+  <p>Country code: {{mrz.country_code}}</p>
+  <p>Country: {{mrz.country}}</p>
+  <p>Nationality: {{mrz.nationality}}</p>
+  <p>Number: {{mrz.number}}</p>
+  <p>Sex: {{mrz.sex}}</p>
+  <br/>
+  <p>Raw data: {{mrz.raw_text}}</p>
+  <p>Valid score: {{mrz.valid_score}}</p>
 </div>
 
 <!--Flag variable is used here-->

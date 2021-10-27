@@ -1,8 +1,8 @@
 package bikini.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
@@ -13,18 +13,35 @@ public class MrzController {
 
     @GetMapping("/testa")
     public List<String> getTontakeria() {
-        return Arrays.asList("oso", "ondo", "aizue", "baleba");
+        return Arrays.asList("oso", "ondo", "aizue", "musho musho");
     }
 
     @GetMapping("/mrzs")
     public String getMrzs() {
-        return getMrzStringa();
+        return getMrzStringaAdibidea();
     }
 
-    private String getMrzStringa() {
+    @PostMapping("/mrzs/uploadnew")
+    public String uploadNew(@RequestParam("thefile")MultipartFile multipartFile) {
+        //irudia gorde lehenengo
+        File file = new File("/home/inaki/proiektuak/mrz_detector/something_uploaded");
+        try (OutputStream os = new FileOutputStream(file)) {
+            os.write(multipartFile.getBytes());
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+        String txorizoa = getMrzTxorizoa("/home/inaki/proiektuak/mrz_detector/something_uploaded");
+        System.out.println("\n\n\n\n================================ txianannia nia nianannannnnn");
+        System.out.println(txorizoa);
+        return txorizoa;
+    }
+
+    private String getMrzTxorizoa(String filePath) {
         StringBuilder emaitza = new StringBuilder();
         try {
-            Process p = Runtime.getRuntime().exec("python3 /home/inaki/proiektuak/mrz_detector/peyerena.py /home/inaki/proiektuak/mrz_detector/samples/sp1.jpg");
+            Process p = Runtime.getRuntime().exec("python3 /home/inaki/proiektuak/mrz_detector/peyerena.py " + filePath);
 
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
             BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -47,5 +64,9 @@ public class MrzController {
         }
         String result = "{" + emaitza.toString().split("\\{")[1].split("}")[0] + "}";
         return result.replace("'", "\"");
+    }
+
+    private String getMrzStringaAdibidea() {
+        return getMrzTxorizoa("/home/inaki/proiektuak/mrz_detector/samples/sp1.jpg");
     }
 }
