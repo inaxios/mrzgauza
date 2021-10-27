@@ -1,28 +1,29 @@
 <div align='center'><h1>Users CRUD gauza Angular ta Spring Boot-ekin</h1></div>
 
-<div>
-  <table class="table" style="width: 80%">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let user of users">
-      <td>
-        {{user.name}}
-      </td>
-      <td>
-        {{user.email}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div>
-  <p>
-    <button (click)="addUser()">Add User</button>
-  </p>
+<!--<div>-->
+<!--  <table class="table" style="width: 80%">-->
+<!--    <tr>-->
+<!--      <th>Name</th>-->
+<!--      <th>Email</th>-->
+<!--      <th></th>-->
+<!--    </tr>-->
+<!--    <tr *ngFor="let user of users">-->
+<!--      <td>-->
+<!--        {{user.name}}-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        {{user.email}}-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</div>-->
+<!--<div>-->
+<!--  <p>-->
+<!--    <button (click)="addUser()">Add User</button>-->
+<!--  </p>-->
+<!--</div>-->
   <p>
     <button (click)="mrzs()">MRZ</button>
   </p>
-</div>
+
 <router-outlet></router-outlet>
