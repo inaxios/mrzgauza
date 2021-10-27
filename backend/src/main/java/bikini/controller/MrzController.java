@@ -1,8 +1,5 @@
 package bikini.controller;
 
-import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecutor;
-import org.apache.commons.exec.PumpStreamHandler;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,23 +18,6 @@ public class MrzController {
 
     @GetMapping("/mrzs")
     public List<String> getMrzs() {
-
-//        String line = "python3 /home/inaki/proiektuak/mrz_detector/peyerena.py samples/sp1.jpg";
-//        CommandLine cmdLine = CommandLine.parse(line);
-//
-//        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//        PumpStreamHandler streamHandler = new PumpStreamHandler(outputStream);
-//
-//        DefaultExecutor executor = new DefaultExecutor();
-//        executor.setStreamHandler(streamHandler);
-//
-//        int exitCode = 777;
-//        try {
-//            exitCode = executor.execute(cmdLine);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         return Arrays.asList("yada yada", getMrzStringa());
     }
 
