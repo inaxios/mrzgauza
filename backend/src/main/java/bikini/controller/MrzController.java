@@ -13,12 +13,12 @@ public class MrzController {
 
     @GetMapping("/testa")
     public List<String> getTontakeria() {
-        return Arrays.asList("oso", "ondo", "aizue", "txabalotexxx");
+        return Arrays.asList("oso", "ondo", "aizue", "baleba");
     }
 
     @GetMapping("/mrzs")
-    public List<String> getMrzs() {
-        return Arrays.asList("yada yada", getMrzStringa());
+    public String getMrzs() {
+        return getMrzStringa();
     }
 
     private String getMrzStringa() {
@@ -31,7 +31,7 @@ public class MrzController {
 
             // read the output from the command
             System.out.println("Here is the standard output of the command:\n");
-            String s = "";
+            String s;
             while ((s = stdInput.readLine()) != null) {
                 emaitza.append(s);
             }
@@ -45,6 +45,7 @@ public class MrzController {
             emaitza.append("bollocks");
             ex.printStackTrace();
         }
-        return "{" + emaitza.toString().split("\\{")[1].split("\\}")[0] + "}";
+        String result = "{" + emaitza.toString().split("\\{")[1].split("}")[0] + "}";
+        return result.replace("'", "\"");
     }
 }
