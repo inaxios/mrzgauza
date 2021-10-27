@@ -32,6 +32,10 @@ export class AppComponent implements OnInit {
       });
   };
 
+  mrzs(): void {
+    this.router.navigate(['mrz']);
+  };
+
   ngOnInit(): void {
     this.router.events.subscribe(value => {
       this.getUsers();
