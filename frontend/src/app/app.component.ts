@@ -40,6 +40,9 @@ export class AppComponent implements OnInit {
     this.router.navigate(['file-upload']);
   }
 
+  gotoanyline(): void {
+    this.router.navigate(['anyline']);
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe(value => {

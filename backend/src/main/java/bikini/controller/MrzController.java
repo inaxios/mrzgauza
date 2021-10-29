@@ -13,7 +13,7 @@ public class MrzController {
 
     @GetMapping("/testa")
     public List<String> getTontakeria() {
-        return Arrays.asList("oso", "ondo", "aizue", "musho musho");
+        return Arrays.asList("oso", "ondo", "aizue", "ba");
     }
 
     @GetMapping("/mrzs")
