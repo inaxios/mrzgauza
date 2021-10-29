@@ -75,6 +75,9 @@ function theMainThing() {
 
   Anyline.onResult = function(result) {
     console.log('Anyline has result: ', result);
+    console.log('x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x');
+    console.log(result.result[13]);
+    Anyline.stopScanning();
   };
 }
 
