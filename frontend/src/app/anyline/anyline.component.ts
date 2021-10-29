@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare const anylinejs: any;
+
 @Component({
   selector: 'app-anyline',
   templateUrl: './anyline.component.html',

@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(value => {
-      this.getUsers();
-    });
+    // this.router.events.subscribe(value => {
+    //   this.getUsers();
+    // });
   }
 }

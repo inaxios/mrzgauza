@@ -24,12 +24,17 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/anylinejs"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/anyline.js",
+              "src/assets/index.js",
+              "src/assets/license.js"
+            ]
           },
           "configurations": {
             "production": {
