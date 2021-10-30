@@ -52,10 +52,13 @@ function theMainThing() {
   this.Anyline.startScanning();
 
   this.Anyline.onResult = function(result) {
-    console.log('Anyline has result: ', result);
-    console.log('x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x');
-    console.log(result.result[14]);
-    Anyline.stopScanning();
+    // console.log('Anyline has result: ', result);
+     console.log('x-x-x-x-x-x-x-x-x-xmaruuux-x-x-x-x-x-x-x-x');
+    // console.log(result.result[14]);
+    //this.Anyline.stopScanning();
+    stopIt();
+    document.getElementById("emaitza").textContent=result.result[14].text;
+    document.getElementById("beste_emaitza").value="naja";
   };
 }
 
@@ -63,8 +66,5 @@ function stopIt() {
   this.Anyline.stopScanning();
 }
 
-function ein() {
-  return "bob esponja";
-}
 
 

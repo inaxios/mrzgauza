@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 declare var theMainThing: any
 declare var stopIt: any;
-declare var ein: any;
 
 @Component({
   selector: 'app-anyline',
@@ -22,6 +21,7 @@ export class AnylineComponent implements OnInit {
 
   gelditu(): void {
     stopIt();
-    console.log(ein());
   }
+
+
 }
