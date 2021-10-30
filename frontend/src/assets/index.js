@@ -1,16 +1,6 @@
 // import anylinejs
 const { init, errorCodes } = window.anylinejs;
 
-// if copied into node_modules
-// import { init, errorCodes } from 'anyline-js';
-
-function delay(n){
-  return new Promise(function(resolve){
-    setTimeout(resolve,n*1000);
-  });
-}
-
-
 // create a view configuration
 const viewConfig = {
   outerColor: '000000',
@@ -43,21 +33,6 @@ const viewConfig = {
   ],
 };
 
-async function myAsyncFunction(){
-  //Do what you want here
-  console.log("Before the delay")
-  console.log(document.getElementById('rooti'));
-  await delay(5);
-
-  console.log("After the delay")
-  console.log(document.getElementById('rooti'));
-  //Do what you want here too
-  //zergatik horrela? Anyline-k rooti horretan jarri behar ditu bere gauzak. Baino script-a egikaritzean rooti hori ez dago oraindik prest, ta beraz kaskatzen du.
-  //bost segundu itxoiten dugu beraz, rooti-a hor dagoela ziurtatzeko. Gero anyline kargatzen dugu beheko deian.
-  theMainThing();
-}
-
-myAsyncFunction();
 
 function theMainThing() {
 

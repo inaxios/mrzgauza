@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare const anylinejs: any;
+declare var theMainThing: any
 
 @Component({
   selector: 'app-anyline',
@@ -14,4 +14,11 @@ export class AnylineComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hasi(): void {
+    theMainThing();
+  }
+
+  gelditu(): void {
+
+  }
 }
