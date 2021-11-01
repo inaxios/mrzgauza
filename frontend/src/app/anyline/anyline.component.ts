@@ -18,4 +18,13 @@ export class AnylineComponent implements OnInit {
     theMainThing();
   }
 
+  denaPrest(balioa: string): void {
+    console.log("dena prest pitxurri");
+    console.log(balioa);
+    let resultHolder = JSON.parse(balioa);
+
+     console.log(resultHolder[8].identifier);
+     console.log(resultHolder[8].text)
+  }
+
 }

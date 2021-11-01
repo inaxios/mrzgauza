@@ -58,6 +58,8 @@ function theMainThing() {
       let item = result.result[i];
       console.log(item.identifier + " --- " + item.text);
     }
+    document.getElementById("txorizoa").value=JSON.stringify(result.result);
+    document.getElementById("prestBotoia").click();
   };
 }
 
