@@ -10,6 +10,8 @@ declare var theMainThing: any
 })
 export class AnylineComponent implements OnInit {
 
+  mrzitems: MrzItem[];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,11 +22,20 @@ export class AnylineComponent implements OnInit {
   }
 
   resultReady(result: string): void {
-    let resultHolder = JSON.parse(result);
+    this.mrzitems = JSON.parse(result);
 
-    resultHolder.forEach(function(value: MrzItem) {
-      console.log(value.identifier + ": " + value.text);
-    });
+    console.log(this.getValueByReference('givenNames'));
+    console.log(this.getValueByReference('surname'));
+    console.log(this.getValueByReference('sex'));
+    console.log(this.getValueByReference('formattedDateOfBirth'));
+
+    console.log(this.getValueByReference('nationalityCountryCode'));
+    console.log(this.getValueByReference('documentNumber'));
+  }
+
+  getValueByReference(identifier: string): string {
+    let result: any = this.mrzitems.find(obj => obj.identifier === identifier);
+    return result.text;
   }
 
 }
