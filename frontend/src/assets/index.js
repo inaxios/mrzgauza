@@ -38,7 +38,7 @@ const viewConfig = {
 function theMainThing() {
 
 // access the container you want to mount anylinejs into
-  const rooti = document.getElementById('rooti');
+  const anylineThingHolder = document.getElementById('anylineThingHolder');
 
 // initialize anylinejs with optional presets
 // presets will override some dimension configuration of your viewConfig and modules in anylinejs config
@@ -46,23 +46,22 @@ function theMainThing() {
     preset: 'id',
     viewConfig,
     license: 'eyJzY29wZSI6WyJBTEwiXSwicGxhdGZvcm0iOlsiaU9TIiwiQW5kcm9pZCIsIldpbmRvd3MiLCJKUyIsIldlYiJdLCJ2YWxpZCI6IjIwMjEtMTEtMjciLCJtYWpvclZlcnNpb24iOjMsIm1heERheXNOb3RSZXBvcnRlZCI6NSwic2hvd1dhdGVybWFyayI6dHJ1ZSwicGluZ1JlcG9ydGluZyI6dHJ1ZSwiZGVidWdSZXBvcnRpbmciOiJvbiIsInRvbGVyYW5jZURheXMiOjUsInNob3dQb3BVcEFmdGVyRXhwaXJ5Ijp0cnVlLCJpb3NJZGVudGlmaWVyIjpbImxva2FsaG9zdCJdLCJhbmRyb2lkSWRlbnRpZmllciI6WyJsb2thbGhvc3QiXSwid2luZG93c0lkZW50aWZpZXIiOlsibG9rYWxob3N0Il0sIndlYklkZW50aWZpZXIiOlsibG9rYWxob3N0Il0sImpzSWRlbnRpZmllciI6WyJsb2thbGhvc3QiXSwiaW1hZ2VSZXBvcnRDYWNoaW5nIjp0cnVlLCJsaWNlbnNlS2V5VmVyc2lvbiI6MiwiYWR2YW5jZWRCYXJjb2RlIjp0cnVlLCJzdXBwb3J0ZWRCYXJjb2RlRm9ybWF0cyI6WyJBTEwiXX0KaWFtZXdQVmVNVUdkTlA4d0NIazNGeERSYW0yV3h1QmU2b2lOWllwMEt3TUsySitIbjZrZEw2OUVMT3BYNzRtK252dDY1Q0pmNE1sMkkxME1PdVVzajJMdTZvQXVrS3hLQ1JJV041eHB2bmhlYnVyL0NMaXBlR2VwWmtpSExwRVNpRzVRK2RDYXA0Rk1NdXhwNWJSbm4yb0JsNzV1MVJ0bG9ZY2llZml0eXVDbVpxWmEzN1BvWlVXZ29maDF3cCtQVGtHaDhnQzZ2Ti9WOGVyaHliZy9qRHUxcWNKeTdKV2RIYmdOaXVoTmtJWUxGWTM2TkQzdUVmY1crYnJKRU4xV0pDQ3dPM2FUSWJYcERUUlRaaGJSQWRNYnUwYmRlUHhncW1FeU1WZXpkVDdIQVBrc25lcWNJUDNsYml0U0E2cEVYZm9vOXFYUHZ4L01kYXZtYm85RE53PT0=',
-    element: rooti
+    element: anylineThingHolder
   });
 
   this.Anyline.startScanning();
 
   this.Anyline.onResult = function(result) {
-    // console.log('Anyline has result: ', result);
-     console.log('x-x-x-x-x-x-x-x-x-xmaruuux-x-x-x-x-x-x-x-x');
-    // console.log(result.result[14]);
-    //this.Anyline.stopScanning();
-    stopIt();
-    document.getElementById("emaitza").textContent=result.result[14].text;
-    document.getElementById("beste_emaitza").value="naja";
+     console.log('Anyline has resultete: ', result);
+    stopScanning();
+    for(let i = 0; i< result.result.length; i++) {
+      let item = result.result[i];
+      console.log(item.identifier + " --- " + item.text);
+    }
   };
 }
 
-function stopIt() {
+function stopScanning() {
   this.Anyline.stopScanning();
 }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 declare var theMainThing: any
-declare var stopIt: any;
 
 @Component({
   selector: 'app-anyline',
@@ -15,13 +14,8 @@ export class AnylineComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  hasi(): void {
+  startTheAnylineThing(): void {
     theMainThing();
   }
-
-  gelditu(): void {
-    stopIt();
-  }
-
 
 }
