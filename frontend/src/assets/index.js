@@ -52,14 +52,10 @@ function theMainThing() {
   this.Anyline.startScanning();
 
   this.Anyline.onResult = function(result) {
-     console.log('Anyline has resultete: ', result);
+    //console.log('Anyline has result: ', result);
     stopScanning();
-    for(let i = 0; i< result.result.length; i++) {
-      let item = result.result[i];
-      console.log(item.identifier + " --- " + item.text);
-    }
-    document.getElementById("txorizoa").value=JSON.stringify(result.result);
-    document.getElementById("prestBotoia").click();
+    document.getElementById("thejsonwiththeresult").value=JSON.stringify(result.result);
+    document.getElementById("buttonResultReady").click();
   };
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MrzItem} from "../mrzitem";
 
 declare var theMainThing: any
 
@@ -18,13 +19,12 @@ export class AnylineComponent implements OnInit {
     theMainThing();
   }
 
-  denaPrest(balioa: string): void {
-    console.log("dena prest pitxurri");
-    console.log(balioa);
-    let resultHolder = JSON.parse(balioa);
+  resultReady(result: string): void {
+    let resultHolder = JSON.parse(result);
 
-     console.log(resultHolder[8].identifier);
-     console.log(resultHolder[8].text)
+    resultHolder.forEach(function(value: MrzItem) {
+      console.log(value.identifier + ": " + value.text);
+    });
   }
 
 }
