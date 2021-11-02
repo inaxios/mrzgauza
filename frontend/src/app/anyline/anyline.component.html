@@ -1,10 +1,47 @@
-<h1>Have a go with anyline library. Click button to start</h1>
-<button (click)="startTheAnylineThing()">start</button>
+<h1>Fill in the form, or click the scan button</h1>
 
 <input type="text" id="thejsonwiththeresult" #thejsonwiththeresult hidden/>
 <button id="buttonResultReady" (click)="resultReady(thejsonwiththeresult.value)" hidden></button>
-<div id="anylineThingHolder" style="height:500px;width:600px"></div>
 
+<div id="anylineThingHolder" style="height:500px;width:600px;display: none"></div>
+<button id="cancelScanButton" (click)="cancelScan()" style="display: none">Cancel</button>
 
+<div class="col-md-6 user-container" id="formHolder">
+  <h2 class="text-center">yada yada</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="givenNames">Given names:</label>
+      <input type="text" formControlName="givenNames" placeholder="" name="givenNames" class="form-control" id="givenNames">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="surname">Surname:</label>
+      <input type="text" formControlName="surname" placeholder="" name="surname" class="form-control" id="surname">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="text" formControlName="gender" placeholder="" name="gender" class="form-control" id="gender">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of birth:</label>
+      <input type="text" formControlName="dateOfBirth" placeholder="" name="dateOfBirth" class="form-control" id="dateOfBirth">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="nationality">Nationality:</label>
+      <input type="text" formControlName="nationality" placeholder="" name="nationality" class="form-control" id="nationality">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="nationality">ID number:</label>
+      <input type="text" formControlName="idNumber" placeholder="" name="idNumber" class="form-control" id="idNumber">
+    </div>
+    <br/>
+    <button (click)="startTheAnylineThing()" id="scanButton">Scan</button>
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>
 
 

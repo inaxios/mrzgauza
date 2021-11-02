@@ -37,6 +37,7 @@ const viewConfig = {
 
 function theMainThing() {
 
+  hideFormAndShowAnyLineStuff();
 // access the container you want to mount anylinejs into
   const anylineThingHolder = document.getElementById('anylineThingHolder');
 
@@ -52,7 +53,7 @@ function theMainThing() {
   this.Anyline.startScanning();
 
   this.Anyline.onResult = function(result) {
-    //console.log('Anyline has result: ', result);
+    console.log('Anyline has result: ', result);
     stopScanning();
     document.getElementById("thejsonwiththeresult").value=JSON.stringify(result.result);
     document.getElementById("buttonResultReady").click();
@@ -61,6 +62,20 @@ function theMainThing() {
 
 function stopScanning() {
   this.Anyline.stopScanning();
+  this.Anyline.dispose();
+  hideAnyLineStuffAndShowForm();
+}
+
+function hideFormAndShowAnyLineStuff() {
+  document.getElementById('anylineThingHolder').style.display = 'block';
+  document.getElementById('cancelScanButton').style.display = 'block';
+  document.getElementById('formHolder').style.display = 'none';
+}
+
+function hideAnyLineStuffAndShowForm() {
+  document.getElementById('anylineThingHolder').style.display = 'none';
+  document.getElementById('cancelScanButton').style.display = 'none';
+  document.getElementById('formHolder').style.display = 'block';
 }
 
 

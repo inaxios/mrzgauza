@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MrzItem} from "../mrzitem";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 declare var theMainThing: any
+declare var stopScanning: any
 
 @Component({
   selector: 'app-anyline',
@@ -14,28 +16,44 @@ export class AnylineComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  addForm = new FormGroup({
+    givenNames: new FormControl('', Validators.required),
+    surname: new FormControl('', Validators.required),
+    gender: new FormControl('', Validators.required),
+    dateOfBirth: new FormControl('', Validators.required),
+    nationality: new FormControl('', Validators.required),
+    idNumber: new FormControl('', Validators.required)
+  });
+
+  ngOnInit() {
+
   }
 
   startTheAnylineThing(): void {
     theMainThing();
   }
 
+  cancelScan(): void {
+    stopScanning();
+  }
+
   resultReady(result: string): void {
     this.mrzitems = JSON.parse(result);
-
-    console.log(this.getValueByReference('givenNames'));
-    console.log(this.getValueByReference('surname'));
-    console.log(this.getValueByReference('sex'));
-    console.log(this.getValueByReference('formattedDateOfBirth'));
-
-    console.log(this.getValueByReference('nationalityCountryCode'));
-    console.log(this.getValueByReference('documentNumber'));
+    this.addForm.setValue({
+      givenNames: this.getValueByReference('givenNames'),
+      surname: this.getValueByReference('surname'),
+      gender: this.getValueByReference('sex'),
+      dateOfBirth: this.getValueByReference('formattedDateOfBirth'),
+      nationality: this.getValueByReference('nationalityCountryCode'),
+      idNumber: this.getValueByReference('documentNumber'),
+    });
   }
 
   getValueByReference(identifier: string): string {
     let result: any = this.mrzitems.find(obj => obj.identifier === identifier);
     return result.text;
   }
-
+  onSubmit() {
+    console.log('badoa zerbitzura eta hortikan atzera');
+  }
 }
