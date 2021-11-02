@@ -38,6 +38,7 @@ export class AnylineComponent implements OnInit {
   }
 
   resultReady(result: string): void {
+    //todo check expiry date!?
     this.mrzitems = JSON.parse(result);
     this.addForm.setValue({
       givenNames: this.getValueByReference('givenNames'),
@@ -47,6 +48,11 @@ export class AnylineComponent implements OnInit {
       nationality: this.getValueByReference('nationalityCountryCode'),
       idNumber: this.getValueByReference('documentNumber'),
     });
+
+    // @ts-ignore
+    document.getElementById('instructions').innerHTML = "any errors? you can either correct them manually or scan again";
+    // @ts-ignore
+    document.getElementById('scanButton').innerHTML = "Re-scan";
   }
 
   getValueByReference(identifier: string): string {

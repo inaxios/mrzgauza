@@ -7,7 +7,7 @@
 <button id="cancelScanButton" (click)="cancelScan()" style="display: none">Cancel</button>
 
 <div class="col-md-6 user-container" id="formHolder">
-  <h2 class="text-center">yada yada</h2>
+  <h2 class="text-center" id="instructions">You can fill in the form manually or scan the document</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="givenNames">Given names:</label>
